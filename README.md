@@ -94,3 +94,113 @@ Cloud storage integration
 Mobile application support
 Email and SMS notifications
 Multi-camera surveillance
+
+
+
+pseudo code
+START
+
+Import GPIO, Time, OS, OpenCV, DateTime, Requests
+
+Set IR_SENSOR_PIN = 17
+Set BUZZER_PIN = 22
+Set LED_PIN = 18
+
+Configure GPIO Pins
+
+Set Telegram BOT_TOKEN
+Set Telegram CHAT_ID
+
+FUNCTION is_human(image_path)
+
+    Load Haar Cascade XML File
+
+    IF XML File Not Found THEN
+        Return FALSE
+    END IF
+
+    Read Image
+
+    Convert Image To Gray Scale
+
+    Detect Faces Using Haar Cascade
+
+    IF Face Count > 0 THEN
+        Return TRUE
+    ELSE
+        Return FALSE
+    END IF
+
+END FUNCTION
+
+FUNCTION send_telegram_message(photo_path, message)
+
+    Open Photo File
+
+    Create Telegram Request
+
+    Send Photo And Message To Telegram Bot
+
+END FUNCTION
+
+Print "Anti-Theft System Active"
+
+WHILE TRUE
+
+    IF IR Sensor Detects Motion THEN
+
+        Print "Motion Detected"
+
+        Turn ON Buzzer
+
+        Turn ON LED
+
+        Generate Timestamp
+
+        Create Image Path
+
+        Capture Image Using Camera Module
+
+        IF is_human(image_path) = TRUE THEN
+
+            result ← "Human Detected"
+
+        ELSE
+
+            result ← "Object Detected"
+
+        END IF
+
+        Print result
+
+        Send Captured Image And Result To Telegram
+
+        Wait 5 Seconds
+
+        Turn OFF Buzzer
+
+        Turn OFF LED
+
+        Print "Waiting For Object To Move Away"
+
+        WHILE IR Sensor Still Detects Motion
+
+            Wait 0.2 Seconds
+
+        END WHILE
+
+    END IF
+
+    Wait 0.1 Seconds
+
+END WHILE
+
+IF Keyboard Interrupt Occurs THEN
+
+    Print "Exiting System"
+
+    Clean GPIO
+
+END
+
+STOP
