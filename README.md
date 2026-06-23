@@ -68,22 +68,6 @@ Edge-AI-Intrusion-Detection/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
-Installation
-Clone Repository
-git clone https://github.com/yourusername/edge-ai-intrusion-detection.git
-cd edge-ai-intrusion-detection
-Install Dependencies
-pip install -r requirements.txt
-Run Project
-python main.py
-Requirements
-opencv-python
-numpy
-requests
-RPi.GPIO
-picamera2
-Human Detection Algorithm
-
 The system uses OpenCV Haar Cascade Classifier for human/face detection.
 
 Steps:
